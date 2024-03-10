@@ -29,8 +29,8 @@ const About = () => {
   }, []);
 
   return (
-    <div className="page about" ref={containerRef}>
-      <div style={{ zIndex: 1 }}>
+    <div className="page" ref={containerRef}>
+      <div style={{ zIndex: 1 }} className="about">
         <p>
           Hey, I'm{" "}
           <a

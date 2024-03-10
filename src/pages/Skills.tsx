@@ -21,111 +21,127 @@ import tailwind from "../assets/Skills Icons/tailwind.png";
 import TechStack from "../components/TechStack";
 
 const Skills = () => {
-    const lang = [
+  const lang = [
     {
-        icon: cpp,
-        name: "C++"
-    }, {
-        icon: python,
-        name: "Python"
-    }, {
-        icon: js,
-        name: "JavaScript"
-    }]
-    const frontend = [
+      icon: cpp,
+      name: "C++",
+    },
     {
-        icon: html,
-        name: "HTML"
-    }, {
-        icon: css,
-        name: "CSS"
-    }, {
-        icon: react,
-        name: "React"
-    }, {
-        icon: next,
-        name: "Next.js"
-    }, {
-        icon: ts,
-        name: "TypeScript"
-    }, {
-        icon: tailwind,
-        name: "Tailwind CSS"
-    }]
-    const backend = [
+      icon: python,
+      name: "Python",
+    },
     {
-        icon: node,
-        name: "Node.js"
-    }, {
-        icon: express,
-        name: "Express.js"
-    }]
-    const db = [
+      icon: js,
+      name: "JavaScript",
+    },
+  ];
+  const frontend = [
     {
-        icon: mongo,
-        name: "MongoDB"
-    }, {
-        icon: mysql,
-        name: "MySQL"
-    }, {
-        icon: postgres,
-        name: "PostgreSQL"
-    }]
-    const devops = [
+      icon: html,
+      name: "HTML",
+    },
     {
-        icon: docker,
-        name: "Docker"
-    }]
+      icon: css,
+      name: "CSS",
+    },
+    {
+      icon: react,
+      name: "React",
+    },
+    {
+      icon: next,
+      name: "Next.js",
+    },
+    {
+      icon: ts,
+      name: "TypeScript",
+    },
+    {
+      icon: tailwind,
+      name: "Tailwind CSS",
+    },
+  ];
+  const backend = [
+    {
+      icon: node,
+      name: "Node.js",
+    },
+    {
+      icon: express,
+      name: "Express.js",
+    },
+  ];
+  const db = [
+    {
+      icon: mongo,
+      name: "MongoDB",
+    },
+    {
+      icon: mysql,
+      name: "MySQL",
+    },
+    {
+      icon: postgres,
+      name: "PostgreSQL",
+    },
+  ];
+  const devops = [
+    {
+      icon: docker,
+      name: "Docker",
+    },
+  ];
 
-    return (
-        <div className="page skills">
-            <div className="skilltype">
-                <p>Programming Languages</p>
-                <div className="skillButtons">
-                    {lang.map((icon, i) => (
-                        <TechStack icon={icon.icon} name={icon.name} key={i}/>
-                    ))}
-                </div>
-            </div>
-
-            <div className="skilltype">
-                <p>Frontend Development</p>
-                <div className="skillButtons">
-                    {frontend.map((icon, i) => (
-                        <TechStack icon={icon.icon} name={icon.name} key={i}/>
-                    ))}
-                </div>
-            </div>
-
-            <div className="skilltype">
-                <p>Backend Development</p>
-                <div className="skillButtons">
-                    {backend.map((icon, i) => (
-                        <TechStack icon={icon.icon} name={icon.name} key={i}/>
-                    ))}
-                </div>
-            </div>
-
-            <div className="skilltype">
-                <p>Database</p>
-                <div className="skillButtons">
-                    {db.map((icon, i) => (
-                        <TechStack icon={icon.icon} name={icon.name} key={i}/>
-                    ))}
-                </div>
-            </div>
-
-            <div className="skilltype">
-                <p>DevOps</p>
-                <div className="skillButtons">
-                    {devops.map((icon, i) => (
-                        <TechStack icon={icon.icon} name={icon.name} key={i}/>
-                    ))}
-                </div>
-            </div>
-
+  return (
+    <div className="page">
+      <div className="skills">
+        <div className="skilltype">
+          <p>Programming Languages</p>
+          <div className="skillButtons">
+            {lang.map((icon, i) => (
+              <TechStack icon={icon.icon} name={icon.name} key={i} />
+            ))}
+          </div>
         </div>
-    );
+
+        <div className="skilltype">
+          <p>Frontend Development</p>
+          <div className="skillButtons">
+            {frontend.map((icon, i) => (
+              <TechStack icon={icon.icon} name={icon.name} key={i} />
+            ))}
+          </div>
+        </div>
+
+        <div className="skilltype">
+          <p>Backend Development</p>
+          <div className="skillButtons">
+            {backend.map((icon, i) => (
+              <TechStack icon={icon.icon} name={icon.name} key={i} />
+            ))}
+          </div>
+        </div>
+
+        <div className="skilltype">
+          <p>Database</p>
+          <div className="skillButtons">
+            {db.map((icon, i) => (
+              <TechStack icon={icon.icon} name={icon.name} key={i} />
+            ))}
+          </div>
+        </div>
+
+        <div className="skilltype">
+          <p>DevOps</p>
+          <div className="skillButtons">
+            {devops.map((icon, i) => (
+              <TechStack icon={icon.icon} name={icon.name} key={i} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Skills;
