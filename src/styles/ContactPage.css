@@ -1,0 +1,42 @@
+/*Contact Style*/
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.contact-text{
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50vh;
+}
+
+.contact-techstack {
+  visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .contact{
+    gap: 2vh;
+  }
+
+  .contact-text{
+    position: relative;
+    transform: translateY(0);
+    top: auto;
+  }
+  .contact-techstack {
+    visibility: visible;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+  }
+  img {
+    height: 10vw;
+    width: 10vw;
+  }
+}

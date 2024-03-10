@@ -1,0 +1,30 @@
+/*Skills Page*/
+:root{
+  --img-size: 5vh;
+}
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+  gap: 2vh;
+}
+.skills p{
+  font-size: 3vh;
+}
+.skilltype{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+.skillButtons{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+}
+.skills img{
+  width: var(--img-size);
+  height: var(--img-size);
+}

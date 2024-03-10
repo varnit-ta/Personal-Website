@@ -1,0 +1,17 @@
+[
+    {
+        "projectName": "AgroInsight",
+        "projectLink": "https://github.com/varnit-ta/AgroInsight",
+        "projectDescription": "A tool to scan crops and predict healthy crops, crop rust, or powdery mildews."
+    },
+    {
+        "projectName": "Workout Buddy",
+        "projectLink": "https://github.com/varnit-ta/Workout-Buddy",
+        "projectDescription": "Workout Buddy is a user-friendly website for tracking workouts, setting goals, and monitoring."
+    },
+    {
+        "projectName": "The Malfoy Blog",
+        "projectLink": "https://github.com/varnit-ta/The-Malfoy-Blog",
+        "projectDescription": "The Malfoy Blog is a Node.js, Express, and React-based platform for sharing personal blogs in a relaxed and creative manner, using a JSON server for content management."
+    }
+]
