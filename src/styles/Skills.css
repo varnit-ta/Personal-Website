@@ -7,8 +7,11 @@
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  height: 100%;
   gap: 2vh;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .skills p{
   font-size: 3vh;
