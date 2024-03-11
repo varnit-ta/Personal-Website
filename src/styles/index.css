@@ -192,5 +192,6 @@ a {
   }
   .page {
     width: 75vw;
+    overflow: hidden;
   }
 }
