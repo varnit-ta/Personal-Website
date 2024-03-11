@@ -263,7 +263,7 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
   }, [canvasId]);
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }} className="asteroid-background">
       <canvas
         ref={canvasRef}
         id={canvasId}
