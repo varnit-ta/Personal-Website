@@ -194,4 +194,7 @@ a {
     width: 75vw;
     overflow: hidden;
   }
+  .asteroid-background{
+    overflow: hidden;
+  }
 }
