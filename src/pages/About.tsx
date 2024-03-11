@@ -34,7 +34,7 @@ const About = () => {
         <p>
           Hey, I'm{" "}
           <a
-            href="https://www.github.com/varnit-ta"
+            href="#"
             onMouseEnter={() => setShowImage(true)}
             onMouseLeave={() => setShowImage(false)}
             aria-describedby="tooltip"
