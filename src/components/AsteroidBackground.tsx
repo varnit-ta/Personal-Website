@@ -1,16 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface AsteroidBackgroundProps {
   canvasId: string;
 }
 
-const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => {
+const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
+  canvasId,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const renderAsteroidBackground = () => {
       let asteroidVelocityMultiplier = 0.3;
-      let asteroidStrokeColor = '#e5e5e5';
+      let asteroidStrokeColor = "#e5e5e5";
 
       const canvas = canvasRef.current;
       if (!canvas) {
@@ -18,14 +20,23 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
         return;
       }
 
-      const context = canvas.getContext('2d');
+      const context = canvas.getContext("2d");
       if (!context) {
-        console.error('Failed to get 2D rendering context for the canvas element.');
+        console.error(
+          "Failed to get 2D rendering context for the canvas element."
+        );
         return;
       }
 
-      const width = window.screen.width;
-      const height = window.screen.height;
+      var displayWidth = window.screen.width;
+      var displayHeight = window.screen.height;
+
+      // Get the pixel density of the display
+      var pixelDensity = window.devicePixelRatio;
+
+      // Calculate the actual display area size
+      var width = displayWidth * pixelDensity;
+      var height = displayHeight * pixelDensity;
 
       canvas.width = width;
       canvas.height = height;
@@ -54,9 +65,16 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
         updateCanvasDimensions();
       };
 
-      window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
 
-      const createAsteroid = (x: number, y: number, radius: number, vx: number, vy: number, isSmall = false): Asteroid => {
+      const createAsteroid = (
+        x: number,
+        y: number,
+        radius: number,
+        vx: number,
+        vy: number,
+        isSmall = false
+      ): Asteroid => {
         const numEdges = Math.floor(Math.random() * 9) + 8; // Random number of edges from 5 to 13
 
         const asteroid: Asteroid = {
@@ -83,12 +101,18 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
 
       const drawAsteroid = (asteroid: Asteroid) => {
         context.beginPath();
-        context.moveTo(asteroid.x + asteroid.edges[0].x, asteroid.y + asteroid.edges[0].y);
+        context.moveTo(
+          asteroid.x + asteroid.edges[0].x,
+          asteroid.y + asteroid.edges[0].y
+        );
         context.strokeStyle = asteroidStrokeColor;
         context.lineWidth = 0.5;
 
         for (let i = 1; i < asteroid.numEdges; i++) {
-          context.lineTo(asteroid.x + asteroid.edges[i].x, asteroid.y + asteroid.edges[i].y);
+          context.lineTo(
+            asteroid.x + asteroid.edges[i].x,
+            asteroid.y + asteroid.edges[i].y
+          );
         }
 
         context.closePath();
@@ -168,42 +192,51 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
         const minAsteroids = 10;
 
         if (asteroidCount < minAsteroids) {
-          const newAsteroids: Asteroid[] = Array.from({ length: minAsteroids - asteroidCount }, () => {
-            const side = Math.floor(Math.random() * 4); // 0: top, 1: right, 2: bottom, 3: left
-            const radius = Math.random() * 80 + 40;
-            let x, y, vx, vy;
+          const newAsteroids: Asteroid[] = Array.from(
+            { length: minAsteroids - asteroidCount },
+            () => {
+              const side = Math.floor(Math.random() * 4); // 0: top, 1: right, 2: bottom, 3: left
+              const radius = Math.random() * 80 + 40;
+              let x, y, vx, vy;
 
-            switch (side) {
-              case 0: // Top
-                x = Math.random() * width;
-                y = -radius;
-                vx = (Math.random() - 0.5) * 1;
-                vy = Math.random() * 1;
-                break;
-              case 1: // Right
-                x = width + radius;
-                y = Math.random() * height;
-                vx = -Math.random() * 1;
-                vy = (Math.random() - 0.5) * 1;
-                break;
-              case 2: // Bottom
-                x = Math.random() * width;
-                y = height + radius;
-                vx = (Math.random() - 0.5) * 1;
-                vy = -Math.random() * 1;
-                break;
-              case 3: // Left
-                x = -radius;
-                y = Math.random() * height;
-                vx = Math.random() * 1;
-                vy = (Math.random() - 0.5) * 1;
-                break;
-              default:
-                break;
+              switch (side) {
+                case 0: // Top
+                  x = Math.random() * width;
+                  y = -radius;
+                  vx = (Math.random() - 0.5) * 1;
+                  vy = Math.random() * 1;
+                  break;
+                case 1: // Right
+                  x = width + radius;
+                  y = Math.random() * height;
+                  vx = -Math.random() * 1;
+                  vy = (Math.random() - 0.5) * 1;
+                  break;
+                case 2: // Bottom
+                  x = Math.random() * width;
+                  y = height + radius;
+                  vx = (Math.random() - 0.5) * 1;
+                  vy = -Math.random() * 1;
+                  break;
+                case 3: // Left
+                  x = -radius;
+                  y = Math.random() * height;
+                  vx = Math.random() * 1;
+                  vy = (Math.random() - 0.5) * 1;
+                  break;
+                default:
+                  break;
+              }
+
+              return createAsteroid(
+                x || 0,
+                y || 0,
+                radius || 0,
+                vx || 0,
+                vy || 0
+              );
             }
-
-            return createAsteroid(x || 0, y || 0, radius || 0, vx || 0, vy || 0);
-          });
+          );
 
           asteroids = [...asteroids, ...newAsteroids];
         }
@@ -250,12 +283,12 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
       initializeAsteroids();
       animationLoop();
 
-      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener("mousemove", handleMouseMove);
 
       // Clean up event listener on component unmount
       return () => {
-        window.removeEventListener('resize', handleResize);
-        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener("resize", handleResize);
+        window.removeEventListener("mousemove", handleMouseMove);
       };
     };
 
@@ -263,17 +296,17 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
   }, [canvasId]);
 
   return (
-    <div style={{ position: 'relative' }} className="asteroid-background">
+    <div style={{ position: "relative" }} className="asteroid-background">
       <canvas
         ref={canvasRef}
         id={canvasId}
         style={{
-          position: 'absolute',
+          position: "absolute",
           zIndex: 0,
           top: 0,
           left: 0,
           width: "100vw",
-          height: '100vh'
+          height: "100vh",
         }}
       />
     </div>
