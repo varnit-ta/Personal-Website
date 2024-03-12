@@ -40,6 +40,7 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
 
       canvas.width = width;
       canvas.height = height;
+      context.scale(pixelDensity, pixelDensity);
 
       interface Asteroid {
         x: number;
