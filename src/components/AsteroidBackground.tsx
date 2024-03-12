@@ -30,16 +30,12 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
 
       var displayWidth = window.screen.width;
       var displayHeight = window.screen.height;
-
-      // Get the pixel density of the display
       var pixelDensity = window.devicePixelRatio;
-
-      // Calculate the actual display area size
       var width = displayWidth * pixelDensity;
       var height = displayHeight * pixelDensity;
 
-      canvas.width = width;
-      canvas.height = height;
+      canvas.width = width * pixelDensity;
+      canvas.height = height * pixelDensity;
       context.scale(pixelDensity, pixelDensity);
 
       interface Asteroid {
