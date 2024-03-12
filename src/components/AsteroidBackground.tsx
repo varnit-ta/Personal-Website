@@ -24,8 +24,8 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({ canvasId }) => 
         return;
       }
 
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const width = window.screen.width;
+      const height = window.screen.height;
 
       canvas.width = width;
       canvas.height = height;
