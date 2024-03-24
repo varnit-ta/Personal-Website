@@ -49,21 +49,6 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
         isSmall: boolean;
       }
 
-      const updateCanvasDimensions = () => {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-      };
-
-      updateCanvasDimensions();
-
-      const handleResize = () => {
-        updateCanvasDimensions();
-      };
-
-      window.addEventListener("resize", handleResize);
-
       const createAsteroid = (
         x: number,
         y: number,
@@ -284,7 +269,6 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
 
       // Clean up event listener on component unmount
       return () => {
-        window.removeEventListener("resize", handleResize);
         window.removeEventListener("mousemove", handleMouseMove);
       };
     };
