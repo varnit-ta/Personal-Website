@@ -28,8 +28,8 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
         return;
       }
 
-      var displayWidth = window.screen.width;
-      var displayHeight = window.screen.height;
+      var displayWidth = window.innerWidth;
+      var displayHeight = window.innerHeight;
       var pixelDensity = window.devicePixelRatio;
       var width = displayWidth * pixelDensity;
       var height = displayHeight * pixelDensity;
@@ -37,6 +37,18 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
       canvas.width = width * pixelDensity;
       canvas.height = height * pixelDensity;
       context.scale(pixelDensity, pixelDensity);
+
+      const updateScreenSize = () => {
+        displayWidth = window.innerWidth;
+        displayHeight = window.innerHeight;
+        width = displayWidth * pixelDensity;
+        height = displayHeight * pixelDensity;
+
+        canvas.width = width;
+        canvas.height = height;
+      }
+
+      window.addEventListener("resize", updateScreenSize);
 
       interface Asteroid {
         x: number;
@@ -233,8 +245,8 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
         asteroids = asteroids.flatMap((asteroid) => {
           updateAsteroid(asteroid);
 
-          const dx = asteroid.x - mousePosition.x;
-          const dy = asteroid.y - mousePosition.y;
+          const dx = asteroid.x + asteroid.radius - mousePosition.x - 40;
+          const dy = asteroid.y + asteroid.radius - mousePosition.y - 40;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           const isOffScreen =
