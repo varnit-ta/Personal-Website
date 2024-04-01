@@ -245,8 +245,8 @@ const AsteroidBackground: React.FC<AsteroidBackgroundProps> = ({
         asteroids = asteroids.flatMap((asteroid) => {
           updateAsteroid(asteroid);
 
-          const dx = asteroid.x + asteroid.radius - mousePosition.x;
-          const dy = asteroid.y + asteroid.radius - mousePosition.y;
+          const dx = asteroid.x - mousePosition.x;
+          const dy = asteroid.y - mousePosition.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           const isOffScreen =
