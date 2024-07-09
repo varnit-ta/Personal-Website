@@ -16,6 +16,7 @@ import docker from "../assets/Skills Icons/docker.png";
 import mysql from "../assets/Skills Icons/mysql.png";
 import postgres from "../assets/Skills Icons/postgres.png";
 import tailwind from "../assets/Skills Icons/tailwind.png";
+import go from "../assets/Skills Icons/go.png";
 
 //Components
 import TechStack from "../components/TechStack";
@@ -34,6 +35,10 @@ const Skills = () => {
       icon: js,
       name: "JavaScript",
     },
+    {
+      icon: go,
+      name: "Go",
+    }
   ];
   const frontend = [
     {
