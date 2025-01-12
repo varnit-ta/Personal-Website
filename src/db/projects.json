@@ -4,11 +4,6 @@
         "projectDescription": "A machine learning project for predicting market risk percentage using an LSTM model, complete with data preprocessing, model training, and a user-friendly shell-based input interface."
     },
     {
-        "projectName": "DocQA",
-        "projectLink": "",
-        "projectDescription": "A question-answering system that uses a pre-trained model to answer questions based on a given document."
-    },
-    {
         "projectName": "AgroInsight",
         "projectLink": "https://github.com/varnit-ta/AgroInsight",
         "projectDescription": "A tool to scan crops and predict healthy crops, crop rust, or powdery mildews."
