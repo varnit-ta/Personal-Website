@@ -14,6 +14,10 @@ import Projects from "./pages/Projects";
 export default function Home() {
   const pageRef = useRef<HTMLDivElement>(null);
   const paginationRef = useRef<HTMLUListElement>(null);
+  const scrollAccumulator = useRef(0);
+  const touchAccumulator = useRef(0);
+  const scrollThreshold = 300; // Higher threshold for less sensitivity
+  const touchThreshold = 400; // Higher threshold for touch sensitivity
 
   let count = 4;
   let current = 0;
@@ -99,6 +103,8 @@ export default function Home() {
     const handleTouchStart = (evt: TouchEvent) => {
       const firstTouch = evt.touches[0];
       yDown = firstTouch.clientY;
+      // Reset touch accumulator on new touch start
+      touchAccumulator.current = 0;
     };
 
     const handleTouchMove = (evt: TouchEvent) => {
@@ -107,26 +113,54 @@ export default function Home() {
       }
 
       let yUp = evt.touches[0].clientY;
-
       let yDiff = yDown - yUp;
+      
+      // Accumulate touch movement
+      touchAccumulator.current += yDiff;
 
-      if (Math.abs(yDiff) > 50) {
-        if (yDiff > 0) {
+      // Check if accumulated touch movement passes threshold
+      if (Math.abs(touchAccumulator.current) >= touchThreshold) {
+        if (touchAccumulator.current > 0) {
           gotoNext();
         } else {
           gotoPrev();
         }
+        // Reset accumulators after page change
+        touchAccumulator.current = 0;
+        yDown = yUp; // Update yDown to current position
       }
     };
 
-    pages?.addEventListener("wheel", (e) => {
-      e.deltaY < 0 ? gotoPrev() : gotoNext();
-    });
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      
+      // Accumulate scroll delta
+      scrollAccumulator.current += Math.abs(e.deltaY) > 100 ? e.deltaY / 2 : e.deltaY;
 
+      // Check if accumulated scroll passes threshold
+      if (Math.abs(scrollAccumulator.current) >= scrollThreshold) {
+        if (scrollAccumulator.current > 0) {
+          gotoNext();
+        } else {
+          gotoPrev();
+        }
+        // Reset accumulator after page change
+        scrollAccumulator.current = 0;
+      }
+    };
+
+    pages?.addEventListener("wheel", handleWheel, { passive: false });
     pages?.addEventListener("touchstart", handleTouchStart);
     pages?.addEventListener("touchmove", handleTouchMove);
 
     init();
+
+    // Cleanup event listeners
+    return () => {
+      pages?.removeEventListener("wheel", handleWheel);
+      pages?.removeEventListener("touchstart", handleTouchStart);
+      pages?.removeEventListener("touchmove", handleTouchMove);
+    };
   }, []);
 
   return (

@@ -1,37 +1,63 @@
 .projects {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Changed from center to allow scrolling */
   align-items: flex-start;
   gap: 5vh;
 
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
+  
+  /* Add scrolling properties */
+  max-height: 80vh; /* Limit height to 80% of viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 20px; /* Add space for scrollbar */
 }
-.projectTab{
+
+/* Style the scrollbar for webkit browsers */
+.projects::-webkit-scrollbar {
+  width: 8px;
+}
+
+.projects::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.projects::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.projects::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.projectTab {
   display: flex;
   flex-direction: column;
   gap: 1vh;
 }
-.projectTab p{
+
+.projectTab p {
   font-size: 0.6em;
   font-weight: 100;
   font-style: oblique;
 }
 
 @media (max-width: 768px) {
-  .projectTab p{
+  .projectTab p {
     font-size: 4vw;
   }
-  a h1{
+  a h1 {
     font-size: 6vw;
   }
-  .projectTab{
+  .projectTab {
     gap: 1vh;
   }
   .projects {
     gap: 2vh;
+    max-height: 70vh; /* Slightly smaller height on mobile */
   }
 }

@@ -41,7 +41,7 @@ const About = () => {
           >
             Varnit Singh
           </a>
-          , a full stack web developer and a {<br />} deep learning enthusiast{<br />} currently studying at VIT Vellore
+          , a full stack web developer and a deep learning enthusiast currently studying at VIT Vellore
         </p>
       </div>
 
