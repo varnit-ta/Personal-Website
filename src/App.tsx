@@ -16,8 +16,8 @@ export default function Home() {
   const paginationRef = useRef<HTMLUListElement>(null);
   const scrollAccumulator = useRef(0);
   const touchAccumulator = useRef(0);
-  const scrollThreshold = 300; // Higher threshold for less sensitivity
-  const touchThreshold = 400; // Higher threshold for touch sensitivity
+  const scrollThreshold = 250; // Higher threshold for less sensitivity
+  const touchThreshold = 300; // Higher threshold for touch sensitivity
 
   let count = 4;
   let current = 0;
