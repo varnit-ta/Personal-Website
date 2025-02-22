@@ -1,21 +1,22 @@
-[   {
+[
+    {
         "projectName": "Market Risk Assessment",
         "projectLink": "https://github.com/varnit-ta/Market-Risk-Assessment",
-        "projectDescription": "A machine learning project for predicting market risk percentage using an LSTM model, complete with data preprocessing, model training, and a user-friendly shell-based input interface."
+        "projectDescription": "Developed an LSTM-based deep learning model for predicting market risk percentage using key financial metrics. Implemented robust data preprocessing, model training, and backtesting to ensure accuracy and reliability."
     },
     {
-        "projectName": "AgroInsight",
-        "projectLink": "https://github.com/varnit-ta/AgroInsight",
-        "projectDescription": "A tool to scan crops and predict healthy crops, crop rust, or powdery mildews."
+        "projectName": "AgriLink",
+        "projectLink": "https://github.com/varnit-ta/AgriLink",
+        "projectDescription": "Designed a full-stack web platform for farmers to market and sell produce directly, eliminating intermediaries. Integrated MongoDB for secure data storage and a TensorFlow-based image analysis model to detect crop diseases like rust and mildew."
     },
     {
-        "projectName": "Workout Buddy",
-        "projectLink": "https://github.com/varnit-ta/Workout-Buddy",
-        "projectDescription": "Workout Buddy is a user-friendly website for tracking workouts, setting goals, and monitoring."
+        "projectName": "Minimalist OS Kernel",
+        "projectLink": "https://github.com/varnit-ta/Operating-System",
+        "projectDescription": "Built a bare-metal OS kernel from scratch with a custom bootloader, interrupt handling (IDT & PIC), and a keyboard driver. Implemented memory segmentation using GDT and developed a basic command-line interface."
     },
     {
-        "projectName": "The Malfoy Blog",
-        "projectLink": "https://github.com/varnit-ta/The-Malfoy-Blog",
-        "projectDescription": "The Malfoy Blog is a Node.js, Express, and React-based platform for sharing personal blogs in a relaxed and creative manner, using a JSON server for content management."
+        "projectName": "Microservices Architecture with Golang",
+        "projectLink": "https://github.com/varnit-ta/Go-Microservices",
+        "projectDescription": "Developed a scalable microservices backend using Golang, RabbitMQ (AMQP protocol), gRPC, and REST APIs. Implemented authentication, logging, and event-driven communication with Dockerized deployment."
     }
 ]
